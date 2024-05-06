@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+
+const props = defineProps({
+  id: Number,
   imageUrl: String,
   title: String,
   price: Number,
@@ -17,7 +19,8 @@ defineProps({
   <div class="">
     <div
         class="relative bg-white border border-slate-100 rounded-3xl p-8 cursor-pointer hover:-translate-y-2 hover:shadow-xl transition">
-      <img @click="onClickFavorite" :src="isFavorite ? '/like-2.svg' : '/like-1.svg'" alt="Like 2" srcset="" class="absolute top-0 left-8">
+      <img @click="onClickFavorite" :src="isFavorite ? '/like-2.svg' : '/like-1.svg'" alt="Like 2" srcset=""
+           class="absolute top-0 left-8">
       <img :src="imageUrl" alt="sneaker" srcset="">
       <p class="mt-4">{{ title }}</p>
 
