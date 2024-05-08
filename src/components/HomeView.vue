@@ -121,7 +121,7 @@ provide('addToFavorite', addToFavorite)
       </div>
     </div>
     <div class="mt-10">
-      <CardList :items="items"/>
+      <CardList :items="items" :add-to-favorite="addToFavorite"/>
     </div>
   </div>
 

@@ -1,4 +1,6 @@
 <script setup>
+import {inject} from "vue";
+const toggleDrower = inject('toggleDrower')
 
 </script>
 
@@ -16,12 +18,10 @@
     </RouterLink>
 
     <ul class="flex items-center gap-10 ">
-      <RouterLink to="/cart">
-        <li class="flex items-center gap-3 cursor-pointer  text-gray-500 hover:text-black">
-          <img src="/cart.svg" alt="cart" srcset="">
-          <span>1205 руб.</span>
-        </li>
-      </RouterLink>
+      <li @click="()=>{toggleDrower()}" class="flex items-center gap-3 cursor-pointer  text-gray-500 hover:text-black">
+        <img src="/cart.svg" alt="cart" srcset="">
+        <span>1205 руб.</span>
+      </li>
 
       <RouterLink to="/favorites">
         <li class="flex items-center gap-3 cursor-pointer text-gray-500 hover:text-black">

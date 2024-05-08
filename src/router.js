@@ -7,7 +7,6 @@ import ProfileVIew from "./components/ProfileVIew.vue";
 
 const routes = [
     {path: '/', component: HomeView},
-    {path: '/cart', component: CartView},
     {path: '/favorites', component: FavoritesView},
     {path: '/profile', component: ProfileVIew}
 ]

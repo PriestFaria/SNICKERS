@@ -20,10 +20,15 @@ const fetchFavorites = async () => {
   }
 }
 
+const addToFavorite = () => {
+  console.log('Unfavorited')
+}
+
 
 onMounted(async () => {
   await fetchFavorites()
 })
+
 
 </script>
 
@@ -34,7 +39,7 @@ onMounted(async () => {
       <h2 class="text-3xl font-bold mb-10">Понравившиеся</h2>
     </div>
     <div class="mt-10">
-      <CardList :items="favoritesItems"/>
+      <CardList :items="favoritesItems" :add-to-favorite="addToFavorite"/>
     </div>
   </div>
 
