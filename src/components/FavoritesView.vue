@@ -1,7 +1,9 @@
 <script setup>
 import {onMounted, provide, ref, watch} from "vue";
 import CardList from "./CardList.vue";
+import EmptyCard from "./EmptyFavorites.vue"
 import axios from "axios";
+import EmptyFavorites from "./EmptyFavorites.vue";
 
 
 const favoritesItems = ref([])
@@ -30,6 +32,11 @@ onMounted(async () => {
 })
 
 
+const isEmptyFavorites = () => {
+  console.log(favoritesItems.value)
+  return favoritesItems.value.length === 0;
+}
+
 </script>
 
 <template>
@@ -38,8 +45,11 @@ onMounted(async () => {
     <div class="flex justify-between items-center">
       <h2 class="text-3xl font-bold mb-10">Понравившиеся</h2>
     </div>
-    <div class="mt-10">
+    <div class="mt-10" v-if="!isEmptyFavorites()">
       <CardList :items="favoritesItems" :add-to-favorite="addToFavorite"/>
+    </div>
+    <div v-else>
+      <EmptyFavorites />
     </div>
   </div>
 
