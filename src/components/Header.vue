@@ -1,7 +1,14 @@
 <script setup>
 import {inject} from "vue";
+import {exit} from "../auth.js";
 const toggleDrower = inject('toggleDrower')
 
+const exitSession = () => {
+  exit();
+  renderExitAuthorize();
+}
+const renderExitAuthorize = inject('renderExitAuthorize')
+const isAuth = inject('isAuth');
 </script>
 
 <template>
@@ -18,10 +25,20 @@ const toggleDrower = inject('toggleDrower')
     </RouterLink>
 
     <ul class="flex items-center gap-10 ">
+      <RouterLink to="/">
+      <li class="flex items-center gap-3 cursor-pointer text-gray-500 hover:text-black" v-if="isAuth" @click="exitSession">
+        <img src="/heart.svg" alt="favorites" srcset="">
+        <span>Выйти</span>
+      </li>
+      </RouterLink>
+
       <li @click="()=>{toggleDrower()}" class="flex items-center gap-3 cursor-pointer  text-gray-500 hover:text-black">
         <img src="/cart.svg" alt="cart" srcset="">
         <span>1205 руб.</span>
       </li>
+
+
+
 
       <RouterLink to="/favorites">
         <li class="flex items-center gap-3 cursor-pointer text-gray-500 hover:text-black">
